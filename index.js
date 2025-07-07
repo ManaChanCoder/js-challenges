@@ -1,39 +1,21 @@
 /* 
-Practice writing reusable functions
-Accept arguments, return values
-Use a function to perform an operation or format data
+Select HTML elements using JavaScript
+Display or update content dynamically
+Practice event handling (basic button click)
  */
 
-const calculator = (num1, num2, operation) => {
-  switch (operation) {
-    case "addition":
-      return num1 + num2;
+const output = document.querySelector("#output");
+const input = document.querySelector("#input");
+const button = document.querySelector("#btn");
 
-    case "subtraction":
-      return num1 - num2;
+button.addEventListener("click", () => {
+  const value = input.value.trim();
 
-    case "multiplication":
-      return num1 * num2;
-
-    case "division":
-      return num1 / num2;
-
-    default:
-      return "Invalid operation";
+  if (value) {
+    output.textContent = `You entered: ${value}`;
+    input.value = ""; // Clear the input field
+  } else {
+    console.log("Please enter a value.");
+    alert("Please Enter a value.");
   }
-};
-const greeting = (name) => {
-  return `Good Day, ${name}!`;
-};
-const ageCalculation = (birthYear) => {
-  const currentYear = new Date().getFullYear();
-  return currentYear - birthYear;
-};
-const celsiusFarenheit = (celsius) => {
-  return (celsius * 9) / 5 + 32;
-};
-
-console.log(calculator(21, 55, "multiplication"));
-console.log(greeting("Rhogenn"));
-console.log(ageCalculation(2001));
-console.log(celsiusFarenheit(30));
+});
