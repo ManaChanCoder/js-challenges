@@ -1,13 +1,24 @@
-/* Goal
-- Practice using let, var, and const
-- Store name, age, course, and hobby
-- Output each one using clg or console.log and use template literals */
+/* 
+Practice basic conditional logic (if, else if, else)
+Use comparison and logical operators
+Simulate eligibility for something (like driving, voting, etc.)
+ */
 
-const fullName = "Rhogenn Saingga";
 let age = 24;
-let hobby = "Cooking and playing games";
-var course = "BSIT or Bachelor of Science in Information Technology";
+let canVote = false;
 
-console.log(
-  `My name is ${fullName} i am ${age} years old, my course is ${course}, and my hobby is ${hobby}.`
-);
+if (age >= 18) {
+  canVote = true;
+}
+
+switch (canVote) {
+  case true:
+    console.log(`You are ${age} years old, you are valid to vote`);
+    break;
+  case false:
+    console.log("You are Minor");
+    break;
+  default:
+    console.log("Invalid age");
+    break;
+}
