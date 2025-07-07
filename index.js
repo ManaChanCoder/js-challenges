@@ -1,24 +1,25 @@
 /* 
-Practice basic conditional logic (if, else if, else)
-Use comparison and logical operators
-Simulate eligibility for something (like driving, voting, etc.)
+Practice looping through arrays
+Display a numbered list of tasks, hobbies, or items using a loop
  */
 
-let age = 24;
-let canVote = false;
+const hobbies = [
+  "Playing guitar",
+  "Reading books",
+  "Hiking",
+  "Cooking",
+  "Traveling",
+];
 
-if (age >= 18) {
-  canVote = true;
+for (let i = 0; i < hobbies.length; i++) {
+  console.log(`${i + 1}. ${hobbies[i]}`);
 }
 
-switch (canVote) {
-  case true:
-    console.log(`You are ${age} years old, you are valid to vote`);
-    break;
-  case false:
-    console.log("You are Minor");
-    break;
-  default:
-    console.log("Invalid age");
-    break;
-}
+const numbers = [11, 22, 33, 44, 55];
+let sum = 0;
+
+numbers.forEach((num) => {
+  sum += num;
+});
+
+console.log(sum);
