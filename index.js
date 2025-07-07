@@ -1,25 +1,39 @@
 /* 
-Practice looping through arrays
-Display a numbered list of tasks, hobbies, or items using a loop
+Practice writing reusable functions
+Accept arguments, return values
+Use a function to perform an operation or format data
  */
 
-const hobbies = [
-  "Playing guitar",
-  "Reading books",
-  "Hiking",
-  "Cooking",
-  "Traveling",
-];
+const calculator = (num1, num2, operation) => {
+  switch (operation) {
+    case "addition":
+      return num1 + num2;
 
-for (let i = 0; i < hobbies.length; i++) {
-  console.log(`${i + 1}. ${hobbies[i]}`);
-}
+    case "subtraction":
+      return num1 - num2;
 
-const numbers = [11, 22, 33, 44, 55];
-let sum = 0;
+    case "multiplication":
+      return num1 * num2;
 
-numbers.forEach((num) => {
-  sum += num;
-});
+    case "division":
+      return num1 / num2;
 
-console.log(sum);
+    default:
+      return "Invalid operation";
+  }
+};
+const greeting = (name) => {
+  return `Good Day, ${name}!`;
+};
+const ageCalculation = (birthYear) => {
+  const currentYear = new Date().getFullYear();
+  return currentYear - birthYear;
+};
+const celsiusFarenheit = (celsius) => {
+  return (celsius * 9) / 5 + 32;
+};
+
+console.log(calculator(21, 55, "multiplication"));
+console.log(greeting("Rhogenn"));
+console.log(ageCalculation(2001));
+console.log(celsiusFarenheit(30));
