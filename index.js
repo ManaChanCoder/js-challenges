@@ -1,12 +1,11 @@
 /* 
-Create a function called greetUser that takes a name as a parameter.
-When called, it should print:
-"Hello, [name]! Welcome!"
-Call the function at least three times with different names.
+Create a function called addNumbers that takes two numbers as parameters.
+The function should return the result (don’t just log it).
+Call the function with 2 numbers and print the returned value.
  */
 
-const greetUser = (name) => {
-  console.log(`Hello, ${name}! Welcome!`);
+const addNumbers = (num1, num2) => {
+  return num1 + num2;
 };
 
-greetUser("Rhogenn Saingga");
+console.log(addNumbers(5, 10));
