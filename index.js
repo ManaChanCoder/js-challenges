@@ -1,21 +1,22 @@
 /* 
-Create an object called person with these properties:
+Create an array called people, where each element is an object with these properties:
 name
 age
 hobby
-Print this sentence using the object:
+Loop through the array and print this for each person:
 "Hi, I'm [name], I'm [age] years old and I love [hobby]."
+
+
  */
 
-const personInfoElement = document.getElementById("person-info");
+const people = [
+  { name: "Alice", age: 30, hobby: "reading" },
+  { name: "Bob", age: 25, hobby: "gaming" },
+  { name: "Charlie", age: 35, hobby: "hiking" },
+];
 
-const person = {
-  name: "John",
-  age: 30,
-  hobby: "coding",
-};
-console.log(
-  `Hi, I'm ${person.name}, I'm ${person.age} years old and I love ${person.hobby}.`
-);
-
-personInfoElement.textContent = `Hi, I'm ${person.name}, I'm ${person.age} years old and I love ${person.hobby}.`;
+people.forEach((person) => {
+  console.log(
+    `Hi, I'm ${person.name}, I'm ${person.age} years old and I love ${person.hobby}.`
+  );
+});
