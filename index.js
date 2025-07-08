@@ -1,11 +1,21 @@
 /* 
-Create a function called addNumbers that takes two numbers as parameters.
-The function should return the result (don’t just log it).
-Call the function with 2 numbers and print the returned value.
+Create an object called person with these properties:
+name
+age
+hobby
+Print this sentence using the object:
+"Hi, I'm [name], I'm [age] years old and I love [hobby]."
  */
 
-const addNumbers = (num1, num2) => {
-  return num1 + num2;
-};
+const personInfoElement = document.getElementById("person-info");
 
-console.log(addNumbers(5, 10));
+const person = {
+  name: "John",
+  age: 30,
+  hobby: "coding",
+};
+console.log(
+  `Hi, I'm ${person.name}, I'm ${person.age} years old and I love ${person.hobby}.`
+);
+
+personInfoElement.textContent = `Hi, I'm ${person.name}, I'm ${person.age} years old and I love ${person.hobby}.`;
