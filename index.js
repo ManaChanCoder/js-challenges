@@ -1,21 +1,11 @@
 /* 
-Select HTML elements using JavaScript
-Display or update content dynamically
-Practice event handling (basic button click)
+Create a variable called name and assign your name to it.
+Create a variable called age and assign your age to it.
+Print out a sentence like:
+"Hi, my name is John and I am 25 years old."
  */
 
-const output = document.querySelector("#output");
-const input = document.querySelector("#input");
-const button = document.querySelector("#btn");
+const fullName = "Rhogenn Saingga";
+let age = 25;
 
-button.addEventListener("click", () => {
-  const value = input.value.trim();
-
-  if (value) {
-    output.textContent = `You entered: ${value}`;
-    input.value = ""; // Clear the input field
-  } else {
-    console.log("Please enter a value.");
-    alert("Please Enter a value.");
-  }
-});
+console.log(`Hi my name is ${fullName} and I am ${age} years old.`);
