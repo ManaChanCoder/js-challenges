@@ -1,11 +1,14 @@
 /* 
-Create a function called addNumbers that takes two numbers as parameters.
-The function should return the result (don’t just log it).
-Call the function with 2 numbers and print the returned value.
+Create a function called printFavorites that takes one parameter — an array.
+Inside the function, loop through the array.
+Print out: "One of my favorites is [item]" for each element.
+Call the function with an array like ["coding", "gaming", "reading"].
  */
 
-const addNumbers = (num1, num2) => {
-  return num1 + num2;
-};
+const hobbies = ["coding", "gaming", "reading"];
 
-console.log(addNumbers(5, 10));
+const printHobbies = (hobbies) => {
+  for (hobby of hobbies) {
+    console.log(`One of my favorites is ${hobby}`);
+  }
+};
