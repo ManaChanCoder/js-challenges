@@ -1,11 +1,16 @@
 /* 
-Create a variable called name and assign your name to it.
-Create a variable called age and assign your age to it.
-Print out a sentence like:
-"Hi, my name is John and I am 25 years old."
+Create a variable age and assign any number to it.
+Write an if statement to check if the person is 18 or older.
+If true, print: "You are allowed to vote."
+If false, print: "Sorry, you are too young to vote."
  */
 
-const fullName = "Rhogenn Saingga";
-let age = 25;
+let age = 24;
 
-console.log(`Hi my name is ${fullName} and I am ${age} years old.`);
+if (age >= 18) {
+  console.log("You are allowed to vote.");
+} else if (age < 18) {
+  console.log("Sorry, you are too young to vote.");
+} else {
+  console.log("Invalid age");
+}
