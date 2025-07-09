@@ -1,24 +1,25 @@
 /* 
-Use your existing students array.
-Use .some() to check if there’s at least one student enrolled in "Computer Science".
+Reuse your students array (use major or course — either is fine).
+Use .every() to check if all students are enrolled in a major (i.e., their major property is not empty).
 If true, print:
-"There is at least one Computer Science student!"
+"All students have a declared major."
 Else, print:
-"No Computer Science students found."
+"Some students are missing a major."
  */
 
 const students = [
-  { name: "Alice", major: "Mathematics" },
-  { name: "Bob", major: "Computer Science" },
-  { name: "Charlie", major: "Physics" },
-  { name: "David", major: "Computer Science" },
-  { name: "Eve", major: "Biology" },
+  { name: "Alice", major: "Computer Science" },
+  { name: "Bob", major: "Mathematics" },
+  { name: "Charlie", major: "" }, // This student is missing a major
+  { name: "David", major: "Physics" },
 ];
 
-const hasBiology = students.some((student) => student.major === "Biology");
+const allHaveMajors = students.every((student) => {
+  return student.major !== "";
+});
 
-if (hasBiology) {
-  console.log("There is at least one Biology student!");
+if (allHaveMajors) {
+  console.log("All students have a declared major.");
 } else {
-  console.log("No Biology students found.");
+  console.log("Some students are missing a major.");
 }
