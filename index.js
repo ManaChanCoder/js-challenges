@@ -1,22 +1,26 @@
 /* 
-Create an array called people, where each element is an object with these properties:
+Create an array called people with several person objects. Each object must have:
 name
 age
-hobby
-Loop through the array and print this for each person:
-"Hi, I'm [name], I'm [age] years old and I love [hobby]."
-
-
+Use .filter() to create a new array that only includes people who are 18 years old or older.
+Print out each adult’s name and age like this:
+"Jane is 25 years old and is allowed."
  */
 
 const people = [
-  { name: "Alice", age: 30, hobby: "reading" },
-  { name: "Bob", age: 25, hobby: "gaming" },
-  { name: "Charlie", age: 35, hobby: "hiking" },
+  { name: "Alice", age: 22 },
+  { name: "Bob", age: 17 },
+  { name: "Charlie", age: 19 },
+  { name: "Diana", age: 16 },
+  { name: "Ethan", age: 30 },
 ];
 
-people.forEach((person) => {
+const adult = people.filter((person) => {
+  return person.age >= 18;
+});
+
+adult.forEach((person) => {
   console.log(
-    `Hi, I'm ${person.name}, I'm ${person.age} years old and I love ${person.hobby}.`
+    `name: ${person.name} is ${person.age} years old and is allowed.`
   );
 });
