@@ -1,13 +1,11 @@
-const details = {
-  firstName: "Rhogenn",
-  lastName: "Saingga",
-  age: 24,
-  hobbies: ["coding", "gaming", "reading"],
-};
-const { firstName, lastName, age, hobbies } = details;
+const books = [
+  { title: "The Great Gatsby", author: "F. Scott Fitzgerald", year: 1925 },
+  { title: "To Kill a Mockingbird", author: "Harper Lee", year: 1960 },
+  { title: "1984", author: "George Orwell", year: 1949 },
+];
 
-console.log(`My name is ${firstName} ${lastName}, I am ${age} years old.`);
-
-hobbies.forEach((hobby) => {
-  console.log(`One of Rhogenn's hobbies is ${hobby}.`);
+books.forEach((book) => {
+  console.log(
+    `Title: ${book.title}, Author: ${book.author}, Year: ${book.year}`
+  );
 });
