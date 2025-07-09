@@ -1,26 +1,24 @@
 /* 
-Create an array called people with several person objects. Each object must have:
+Create an array called students — each object must have:
 name
-age
-Use .filter() to create a new array that only includes people who are 18 years old or older.
-Print out each adult’s name and age like this:
-"Jane is 25 years old and is allowed."
+course
+Use .map() to turn the array into a new array of strings like:
+"Hi, I’m [name] and I’m enrolled in [course]."
+Print the new array using .forEach() (or console.log() directly inside .map() if you like).
  */
 
-const people = [
-  { name: "Alice", age: 22 },
-  { name: "Bob", age: 17 },
-  { name: "Charlie", age: 19 },
-  { name: "Diana", age: 16 },
-  { name: "Ethan", age: 30 },
+const students = [
+  { name: "Alice", course: "Mathematics" },
+  { name: "Bob", course: "Physics" },
+  { name: "Charlie", course: "Chemistry" },
+  { name: "Diana", course: "Biology" },
+  { name: "Ethan", course: "Computer Science" },
 ];
 
-const adult = people.filter((person) => {
-  return person.age >= 18;
+const greetings = students.map((student) => {
+  return `Hi, I'm ${student.name} and I'm enrolled in ${student.course}.`;
 });
 
-adult.forEach((person) => {
-  console.log(
-    `name: ${person.name} is ${person.age} years old and is allowed.`
-  );
+greetings.forEach((stud) => {
+  console.log(stud);
 });
