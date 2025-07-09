@@ -1,27 +1,28 @@
-const users = [
+const items = [
   {
-    name: "Alice",
-    age: 30,
-    greet() {
-      return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+    name: "Laptop",
+    quantity: 10,
+    checkStocks() {
+      if (this.quantity > 0) {
+        console.log(`${this.name}: in stock.`);
+      } else {
+        console.log(`${this.name}: out of stock.`);
+      }
     },
   },
   {
-    name: "Bob",
-    age: 25,
-    greet() {
-      return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
-    },
-  },
-  {
-    name: "Charlie",
-    age: 35,
-    greet() {
-      return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+    name: "Mouse",
+    quantity: 0,
+    checkStocks() {
+      if (this.quantity > 0) {
+        console.log(`${this.name}: in stock.`);
+      } else {
+        console.log(`${this.name}: out of stock.`);
+      }
     },
   },
 ];
 
-users.forEach((user) => {
-  console.log(user.greet());
+items.forEach((item) => {
+  console.log(item.checkStocks());
 });
