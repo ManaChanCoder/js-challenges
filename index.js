@@ -1,27 +1,22 @@
-const calculator = {
-  add(a, b) {
-    return a + b;
-  },
-  subtract(a, b) {
-    if (a < b) {
-      return "Subtraction result is negative";
+const students = {
+  firstName: "Rhogenn",
+  lastName: "Saingga",
+  grades: [90, 85, 88, 92],
+  isPassed() {
+    let average = 0;
+    this.grades.forEach((grade) => {
+      average += grade / this.grades.length;
+    });
+    if (average >= 75) {
+      return `Congratulations ${this.firstName} ${
+        this.lastName
+      }, you have passed with an average grade of ${average.toFixed(2)}.`;
     } else {
-      return a - b;
-    }
-  },
-  multiplication(a, b) {
-    return a * b;
-  },
-  division(a, b) {
-    if (b === 0) {
-      return "Division by zero is not allowed";
-    } else {
-      return a / b;
+      return `Sorry ${this.firstName} ${
+        this.lastName
+      }, you have not passed. Your average grade is ${average.toFixed(2)}.`;
     }
   },
 };
 
-console.log(`${calculator.add(2, 3)}`);
-console.log(`${calculator.subtract(5, 2)}`);
-console.log(`${calculator.multiplication(3, 4)}`);
-console.log(`${calculator.division(10, 2)}`);
+console.log(`${students.isPassed()}`);
