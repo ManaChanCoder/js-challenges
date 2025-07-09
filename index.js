@@ -9,6 +9,15 @@ const details = {
     zip: "1860",
   },
 };
+
+details.firstName = "Michael";
+details.lastName = "Gallon";
+details.age = 28;
+details.address.street = "San buena st";
+details.address.city = "Cainta";
+details.address.province = "Rizal";
+details.address.zip = "1900";
+
 const {
   firstName,
   lastName,
