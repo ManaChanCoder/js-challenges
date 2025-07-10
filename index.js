@@ -4,9 +4,12 @@ const person = [
   { lastName: "Sihombing", firstName: "Ricky", age: 25 },
 ];
 
-const findPerson = (lastName) => {
-  const found = person.find((p) => {
-    return p.lastName.toLowerCase() === lastName.toLowerCase();
+const filteredPeople = person.filter((p) => {
+  return p.age >= 18;
+});
+
+if (filteredPeople.length > 0) {
+  filteredPeople.forEach((filteredPerson) => {
+    console.log(`You are allowed age: ${filteredPerson.age}`);
   });
-};
-findPerson("Saingga");
+}
