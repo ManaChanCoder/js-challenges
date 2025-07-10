@@ -1,29 +1,15 @@
-/*
-Filter out only the enrolled students.
-Map them into a message like:
-"✅ [name] is enrolled."
-If some students are not enrolled, print:
-"⚠️ Some students are not enrolled."
-Otherwise, print:
-"🎉 Everyone is enrolled!"
-*/
-
-const students = [
-  { name: "Rhogenn", isEnrolled: true },
-  { name: "Michael", isEnrolled: false },
-  { name: "Joshua", isEnrolled: true },
-  { name: "Brent", isEnrolled: false },
-  { name: "Kc", isEnrolled: false },
+const people = [
+  { name: "John", age: 35 },
+  { name: "Smith", age: 63 },
+  { name: "Violi", age: 45 },
+  { name: "Margie", age: 60 },
 ];
 
-const enrolled = students.filter((student) => student.isEnrolled);
+const findingSenior = people.reduce((count, senior) => {
+  if (senior.age >= 60) {
+    return count + 1;
+  }
+  return count;
+}, 0);
 
-enrolled.forEach((listEnrolled) => {
-  console.log(listEnrolled);
-});
-
-if (enrolled.length < students.length) {
-  console.log("Some of student are enrolled!");
-} else {
-  console.log("Everyone is enrolled!");
-}
+console.log(`The number of senior citizen is: ${findingSenior}`);
