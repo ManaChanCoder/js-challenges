@@ -1,19 +1,29 @@
-/* 
-Task / Instruction:
-Gamit ang array na person, gamitin ang .every() method para malaman kung lahat ay adults (age >= 18).
-Kung lahat ay adults, iprint:
-"All persons are adults."
-Kung meron kahit isa na minor, iprint:
-"There are still minors in the list."
- */
+/*
+Filter out only the enrolled students.
+Map them into a message like:
+"✅ [name] is enrolled."
+If some students are not enrolled, print:
+"⚠️ Some students are not enrolled."
+Otherwise, print:
+"🎉 Everyone is enrolled!"
+*/
 
-const person = [
-  { lastName: "Saingga", firstName: "Rhogenn", age: 24 },
-  { lastName: "Sihombing", firstName: "Ricky", age: 25 },
-  { lastName: "Sihombing", firstName: "Ricky", age: 25 },
+const students = [
+  { name: "Rhogenn", isEnrolled: true },
+  { name: "Michael", isEnrolled: false },
+  { name: "Joshua", isEnrolled: true },
+  { name: "Brent", isEnrolled: false },
+  { name: "Kc", isEnrolled: false },
 ];
 
-const allAdults = person.every((p) => p.age >= 18);
+const enrolled = students.filter((student) => student.isEnrolled);
 
-if (allAdults) console.log("All persons are adults.");
-else console.log("There are still minor in the list.");
+enrolled.forEach((listEnrolled) => {
+  console.log(listEnrolled);
+});
+
+if (enrolled.length < students.length) {
+  console.log("Some of student are enrolled!");
+} else {
+  console.log("Everyone is enrolled!");
+}
