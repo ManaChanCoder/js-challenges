@@ -4,12 +4,10 @@ const person = [
   { lastName: "Sihombing", firstName: "Ricky", age: 25 },
 ];
 
-const filteredPeople = person.filter((p) => {
-  return p.age >= 18;
-});
+const findMinor = person.filter((p) => p.age < 18);
 
-if (filteredPeople.length > 0) {
-  filteredPeople.forEach((filteredPerson) => {
-    console.log(`You are allowed age: ${filteredPerson.age}`);
-  });
-}
+findMinor.forEach((minor) =>
+  console.log(
+    `Sorry ${minor.firstName}, you are still a minor at ${minor.age} years old`
+  )
+);
