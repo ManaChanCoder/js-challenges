@@ -1,29 +1,28 @@
-const people = [
-  { name: "Rhogenn", age: 24 },
-  { name: "John", age: 25 },
-  { name: "Maria", age: 32 },
-  { name: "Carlos", age: 19 },
-  { name: "Anna", age: 41 },
-  { name: "Leo", age: 28 },
-  { name: "Violi", age: 45 },
-  { name: "Samuel", age: 35 },
-  { name: "Ella", age: 22 },
-  { name: "Mark", age: 60 },
-  { name: "Tina", age: 29 },
+const departments = [
+  {
+    name: "Engineering",
+    employees: [{ name: "Michael" }, { name: "Louije" }, { name: "Kiraray" }],
+  },
+  {
+    name: "Electrician",
+    employees: [{ name: "Raymond" }, { name: "Rodney" }, { name: "Tsuyochi" }],
+  },
+  {
+    name: "Frontend Developer",
+    employees: [{ name: "Rhogenn" }, { name: "Joshua" }, { name: "Daniel" }],
+  },
+  {
+    name: "HR",
+    employees: [{ name: "Anna" }, { name: "Leo" }],
+  },
 ];
 
-const grouped = people.reduce(
-  (result, person) => {
-    if (person.age <= 30) {
-      result.young.push(person);
-    } else if (person.age > 30 && person.age <= 59) {
-      result.adult.push(person);
-    } else {
-      result.senior.push(person);
-    }
-    return result;
-  },
-  { young: [], adult: [], senior: [] }
-);
+departments.forEach((total) => {
+  console.log(`${total.name}: ${total.employees.length}`);
+});
 
-console.log(grouped);
+const getTotal = departments.reduce((accum, current) => {
+  return accum + current.employees.length;
+}, 0);
+
+console.log(`The Total employees in all department: ${getTotal}`);
