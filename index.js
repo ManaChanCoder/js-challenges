@@ -1,28 +1,19 @@
-const departments = [
-  {
-    name: "Engineering",
-    employees: [{ name: "Michael" }, { name: "Louije" }, { name: "Kiraray" }],
-  },
-  {
-    name: "Electrician",
-    employees: [{ name: "Raymond" }, { name: "Rodney" }, { name: "Tsuyochi" }],
-  },
-  {
-    name: "Frontend Developer",
-    employees: [{ name: "Rhogenn" }, { name: "Joshua" }, { name: "Daniel" }],
-  },
-  {
-    name: "HR",
-    employees: [{ name: "Anna" }, { name: "Leo" }],
-  },
+const employees = [
+  { name: "Michael", age: 28 },
+  { name: "Rodney", age: 24 },
+  { name: "Rhogenn", age: 24 },
+  { name: "Brent", age: 25 },
+  { name: "Joshua", age: 25 },
+  { name: "Kc", age: 23 },
 ];
 
-departments.forEach((total) => {
-  console.log(`${total.name}: ${total.employees.length}`);
+const reformatEmployees = employees.map((emp) => {
+  return emp.name;
 });
-
-const getTotal = departments.reduce((accum, current) => {
-  return accum + current.employees.length;
+const flatEmployees = reformatEmployees.flat();
+const totalEmployees = reformatEmployees.reduce((accumalator, currentValue) => {
+  return accumalator + 1;
 }, 0);
 
-console.log(`The Total employees in all department: ${getTotal}`);
+console.log(flatEmployees);
+console.log(`we have ${totalEmployees} total employees in our company`);
