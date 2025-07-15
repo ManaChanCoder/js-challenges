@@ -4,16 +4,23 @@ const employees = [
   { name: "Rhogenn", age: 24 },
   { name: "Brent", age: 25 },
   { name: "Joshua", age: 25 },
-  { name: "Kc", age: 23 },
+  { name: "Kc", age: 24 },
 ];
 
-const reformatEmployees = employees.map((emp) => {
-  return emp.name;
-});
-const flatEmployees = reformatEmployees.flat();
-const totalEmployees = reformatEmployees.reduce((accumalator, currentValue) => {
-  return accumalator + 1;
-}, 0);
+const commonAge = employees.reduce((total, current) => {
+  total[current.age] = (total[current.age] || 0) + 1;
+  return total;
+}, {});
 
-console.log(flatEmployees);
-console.log(`we have ${totalEmployees} total employees in our company`);
+let mostCommon = null;
+let maxCount = 0;
+
+for (const age in commonAge) {
+  if (commonAge[age] > maxCount) {
+    maxCount = commonAge[age];
+    mostCommon = Number(age);
+  }
+}
+console.log(
+  `The most common age: ${mostCommon}, we have ${maxCount} of them with same age`
+);
