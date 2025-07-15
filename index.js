@@ -7,20 +7,12 @@ const employees = [
   { name: "Kc", age: 24 },
 ];
 
-const commonAge = employees.reduce((total, current) => {
-  total[current.age] = (total[current.age] || 0) + 1;
-  return total;
+const groupedByAge = employees.reduce((acc, curr) => {
+  if (!acc[curr.age]) {
+    acc[curr.age] = [];
+  }
+  acc[curr.age].push(curr);
+  return acc;
 }, {});
 
-let mostCommon = null;
-let maxCount = 0;
-
-for (const age in commonAge) {
-  if (commonAge[age] > maxCount) {
-    maxCount = commonAge[age];
-    mostCommon = Number(age);
-  }
-}
-console.log(
-  `The most common age: ${mostCommon}, we have ${maxCount} of them with same age`
-);
+console.log(groupedByAge);
