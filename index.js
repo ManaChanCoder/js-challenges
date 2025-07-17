@@ -1,27 +1,35 @@
-class Person {
-  constructor(name) {
-    this.name = name;
+class BankAccount {
+  constructor(owner, balance) {
+    this._owner = owner;
+    this._balance = balance;
+  }
+
+  get accountInfo() {
+    return `Owner: ${this._owner} | Balance: ${this._balance}`;
+  }
+  set owner(owner) {
+    if (owner.length > 0) {
+      this._owner = owner;
+    } else {
+      console.log("Cannot Accept Empty");
+    }
+  }
+
+  withdraw(funds) {
+    if (this._balance > 0) {
+      this._balance -= funds;
+      console.log(`Withdraw successfully. New balance: ${this._balance}`);
+    } else {
+      console.log(`Not enough balance: ${this._balance}`);
+    }
+  }
+  deposit(funds) {
+    this._balance += funds;
+    console.log(`Deposit successfully. New balance: ${this._balance}`);
   }
 }
-class Employee extends Person {
-  constructor(name, position) {
-    super(name);
-    this.position = position;
-  }
 
-  introduce() {
-    console.log(`Hi, I'm ${this.name}, working as a ${this.position}.`);
-  }
-}
-
-const employee1 = new Employee("Rhogenn", "Frontend Developer");
-const employee2 = new Employee("Rodney", "Pharmaceutical");
-const employee3 = new Employee("Brent", "Construction");
-const employee4 = new Employee("Kc", "Factory Worker");
-const employee5 = new Employee("Raymond", "Restaurant Crew");
-
-employee1.introduce();
-employee2.introduce();
-employee3.introduce();
-employee4.introduce();
-employee5.introduce();
+const bankOwner1 = new BankAccount("Rhogenn", 20000);
+bankOwner1.withdraw(12000);
+bankOwner1.deposit(32000);
+console.log(bankOwner1.accountInfo);
