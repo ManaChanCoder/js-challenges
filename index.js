@@ -1,16 +1,27 @@
 class Person {
-  constructor(name, age) {
+  constructor(name) {
     this.name = name;
-    this.age = age;
   }
-  static compareAge(personA, personB) {
-    if (personA.age < personB.age) return `Person A is younger than person B`;
-    else if (personA.age > personB.age)
-      return `Person A is Older than person B`;
-    else return `They're both same age`;
+}
+class Employee extends Person {
+  constructor(name, position) {
+    super(name);
+    this.position = position;
+  }
+
+  introduce() {
+    console.log(`Hi, I'm ${this.name}, working as a ${this.position}.`);
   }
 }
 
-const personA = new Person("Rhogenn", 24);
-const personB = new Person("Joshua", 25);
-console.log(Person.compareAge(personA, personB));
+const employee1 = new Employee("Rhogenn", "Frontend Developer");
+const employee2 = new Employee("Rodney", "Pharmaceutical");
+const employee3 = new Employee("Brent", "Construction");
+const employee4 = new Employee("Kc", "Factory Worker");
+const employee5 = new Employee("Raymond", "Restaurant Crew");
+
+employee1.introduce();
+employee2.introduce();
+employee3.introduce();
+employee4.introduce();
+employee5.introduce();
