@@ -1,18 +1,19 @@
-const employees = [
-  { name: "Michael", age: 28 },
-  { name: "Rodney", age: 24 },
-  { name: "Rhogenn", age: 24 },
-  { name: "Brent", age: 25 },
-  { name: "Joshua", age: 25 },
-  { name: "Kc", age: 24 },
-];
-
-const groupedByAge = employees.reduce((acc, curr) => {
-  if (!acc[curr.age]) {
-    acc[curr.age] = [];
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
   }
-  acc[curr.age].push(curr);
-  return acc;
-}, {});
 
-console.log(groupedByAge);
+  greet = () => {
+    console.log(`Hi i'm ${this.name}, ${this.age} years old`);
+  };
+}
+
+const person1 = new Person("Rhogenn", 24);
+const person2 = new Person("Rodney", 24);
+const person3 = new Person("Joshua", 25);
+const person4 = new Person("Kc", 25);
+const person5 = new Person("Brent", 25);
+const person6 = new Person("Michael", 28);
+person1.greet();
+person6.greet();
