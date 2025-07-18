@@ -1,40 +1,74 @@
-class Animal {
-  constructor(name, sound) {
+class Character {
+  constructor(name, health, attackPower) {
     this.name = name;
-    this.sound = sound;
+    this.health = health;
+    this.attackPower = attackPower;
   }
-
-  makeSound() {
-    console.log(`The ${this.name} says ${this.sound}`);
-  }
-}
-
-class Dog extends Animal {
-  constructor(name, sound, breed) {
-    super(name, sound);
-    this.breed = breed;
-  }
-  makeSound() {
+  attack(target) {
+    target.health -= this.attackPower;
     console.log(
-      `The ${this.name} bark: ${this.sound}, and it's breed is ${this.breed}`
+      `🗡️ ${this.name} attacks ${target}! ${target}'s health is now ${target.health}.`
     );
   }
 }
-class Cat extends Animal {
-  constructor(name, sound, breed) {
-    super(name, sound);
-    this.breed = breed;
+class Warrior extends Character {
+  constructor(name, health, attackPower, weapon) {
+    super(name, health, attackPower);
+    this.weapon = weapon;
   }
-  makeSound() {
-    console.log(
-      `The ${this.name} meows: ${this.sound}, and it's breed is ${this.breed}`
-    );
+  attack(target) {
+    if (target.health <= 0) {
+      console.log(`${target.name} died`);
+    } else {
+      target.health -= this.attackPower;
+      console.log(
+        `🗡️ ${this.name} attacks ${target.name} with a ${this.weapon}! ${target.name}'s health is now ${target.health}.`
+      );
+    }
+  }
+}
+class Mage extends Character {
+  constructor(name, health, attackPower, weapon, mana, skillName) {
+    super(name, health, attackPower);
+    this.weapon = weapon;
+    this.mana = mana;
+    this.skillName = skillName;
+  }
+  attack(target) {
+    if (target.health <= 0) {
+      console.log(`${target.name} died`);
+    } else {
+      target.health -= this.attackPower;
+      console.log(
+        `🗡️ ${this.name} attacks ${target.name} with a ${this.weapon}! ${target.name}'s health is now ${target.health}.`
+      );
+    }
+  }
+  skill(target) {
+    if (target.health <= 0) {
+      console.log(`${target.name} died`);
+    } else {
+      if (this.mana >= 10) {
+        target.health -= 30;
+        console.log(
+          `${this.name} attack with skill name ${this.skillName} to target ${target.name}, enemies health ${target.health}.`
+        );
+      } else {
+        console.log("⚠️ Not enough mana to cast a spell!");
+      }
+    }
   }
 }
 
-const siamese = new Cat("Cat", "Meow", "Siamese");
-const labrador = new Dog("Dog", "Aw", "Labrador");
-const frog = new Animal("Frog", "Kukak");
-labrador.makeSound();
-siamese.makeSound();
-frog.makeSound();
+const warriorChampion = new Warrior("Rommel", 100, 15, "Sword");
+const mageChampion = new Mage(
+  "Babae",
+  100,
+  8,
+  "Ice Staff",
+  100,
+  "Frontier Dome"
+);
+warriorChampion.attack(mageChampion);
+mageChampion.attack(warriorChampion);
+mageChampion.skill(warriorChampion);
