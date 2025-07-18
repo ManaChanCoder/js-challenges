@@ -3,6 +3,7 @@ class Character {
     this.name = name;
     this.health = health;
     this.attackPower = attackPower;
+    this.inventory = [];
   }
   attack(target) {
     target.health -= this.attackPower;
@@ -10,10 +11,37 @@ class Character {
       `🗡️ ${this.name} attacks ${target}! ${target}'s health is now ${target.health}.`
     );
   }
+  listInventory() {
+    let backpack = this.inventory;
+
+    backpack.forEach((item) => {
+      console.log(item);
+    });
+  }
+  addItem(newItem) {
+    this.inventory.push(...newItem);
+    newItem.forEach((item) => console.log(`New item added: ${item.name}`));
+  }
+  useItem(itemName) {
+    const foundItem = this.inventory.find((item) => item.name === itemName);
+
+    if (foundItem) {
+      if (foundItem.name === "Health Potion") {
+        this.health += foundItem.value;
+        console.log(
+          `${this.name} used ${itemName}, health is now ${this.health}`
+        );
+        const removeItem = this.inventory.filter(
+          (item) => item.name !== itemName
+        );
+        removeItem.forEach((item) => console.log(item));
+      }
+    }
+  }
 }
 class Warrior extends Character {
-  constructor(name, health, attackPower, weapon) {
-    super(name, health, attackPower);
+  constructor(name, health, attackPower, inventory, weapon) {
+    super(name, health, attackPower, inventory);
     this.weapon = weapon;
   }
   attack(target) {
@@ -28,8 +56,8 @@ class Warrior extends Character {
   }
 }
 class Mage extends Character {
-  constructor(name, health, attackPower, weapon, mana, skillName) {
-    super(name, health, attackPower);
+  constructor(name, health, attackPower, inventory, weapon, mana, skillName) {
+    super(name, health, attackPower, inventory);
     this.weapon = weapon;
     this.mana = mana;
     this.skillName = skillName;
@@ -95,7 +123,11 @@ class BattleField {
     );
   }
 }
-
+const items = [
+  { name: "Health Potion", effect: "heal", value: 20 },
+  { name: "Mana Potion", effect: "mana", value: 20 },
+  { name: "Repeal Potion", effect: "escape", value: 10 },
+];
 const warriorChampion = new Warrior("Rommel", 100, 15, "Sword");
 const mageChampion = new Mage(
   "Babae",
@@ -105,5 +137,7 @@ const mageChampion = new Mage(
   100,
   "Frontier Dome"
 );
+mageChampion.addItem(items);
+mageChampion.useItem("Health Potion");
 const startBattle = new BattleField(warriorChampion, mageChampion);
-startBattle.start();
+// startBattle.start();
