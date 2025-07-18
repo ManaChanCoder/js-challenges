@@ -59,6 +59,42 @@ class Mage extends Character {
     }
   }
 }
+class BattleField {
+  constructor(character1, character2) {
+    this.character1 = character1;
+    this.character2 = character2;
+  }
+
+  start() {
+    console.log(
+      `⚔️ Battle starts between ${this.character1.name} and ${this.character2.name}!`
+    );
+    let attacker, defender;
+    if (Math.random() < 0.5) {
+      attacker = this.character1;
+      defender = this.character2;
+    } else {
+      attacker = this.character2;
+      defender = this.character1;
+    }
+    console.log(`${attacker.name} first attack`);
+
+    while (attacker.health > 0 && defender.health > 0) {
+      attacker.attack(defender);
+
+      if (defender.health <= 0) {
+        this.statusLog(defender);
+        break;
+      }
+      [attacker, defender] = [defender, attacker];
+    }
+  }
+  statusLog(defender) {
+    console.log(
+      `${defender.name}, is died ${defender.health} health | wins attacker`
+    );
+  }
+}
 
 const warriorChampion = new Warrior("Rommel", 100, 15, "Sword");
 const mageChampion = new Mage(
@@ -69,6 +105,5 @@ const mageChampion = new Mage(
   100,
   "Frontier Dome"
 );
-warriorChampion.attack(mageChampion);
-mageChampion.attack(warriorChampion);
-mageChampion.skill(warriorChampion);
+const startBattle = new BattleField(warriorChampion, mageChampion);
+startBattle.start();
