@@ -1,46 +1,40 @@
-class Book {
-  constructor(title, author, isAvailable = true) {
-    this.title = title;
-    this.author = author;
-    this.isAvailable = isAvailable;
+class Animal {
+  constructor(name, sound) {
+    this.name = name;
+    this.sound = sound;
   }
-  toggleAvailability() {
-    this.isAvailable = !this.isAvailable;
+
+  makeSound() {
+    console.log(`The ${this.name} says ${this.sound}`);
   }
 }
 
-class Library {
-  constructor() {
-    this.books = [];
+class Dog extends Animal {
+  constructor(name, sound, breed) {
+    super(name, sound);
+    this.breed = breed;
   }
-
-  addBook(book) {
-    this.books.push(book);
-  }
-  listAvailableBooks() {
-    const showBook = this.books.filter((book) => {
-      return book.isAvailable;
-    });
-    showBook.forEach((book) => {
-      console.log(`Title: ${book.title} by Author is ${book.author}`);
-    });
-  }
-  borrowBook(title) {
-    const foundBook = this.books.find(
-      (book) => book.title === title && book.isAvailable
+  makeSound() {
+    console.log(
+      `The ${this.name} bark: ${this.sound}, and it's breed is ${this.breed}`
     );
-
-    if (foundBook) {
-      foundBook.toggleAvailability();
-    } else {
-      console.log(`Sorry, ${title} is currently not available`);
-    }
   }
 }
-const lib = new Library();
-lib.addBook(new Book("Atomic Habits", "James Clear"));
-lib.addBook(new Book("Deep Work", "Cal Newport"));
-lib.listAvailableBooks();
+class Cat extends Animal {
+  constructor(name, sound, breed) {
+    super(name, sound);
+    this.breed = breed;
+  }
+  makeSound() {
+    console.log(
+      `The ${this.name} meows: ${this.sound}, and it's breed is ${this.breed}`
+    );
+  }
+}
 
-lib.borrowBook("Atomic Habits");
-lib.listAvailableBooks();
+const siamese = new Cat("Cat", "Meow", "Siamese");
+const labrador = new Dog("Dog", "Aw", "Labrador");
+const frog = new Animal("Frog", "Kukak");
+labrador.makeSound();
+siamese.makeSound();
+frog.makeSound();
